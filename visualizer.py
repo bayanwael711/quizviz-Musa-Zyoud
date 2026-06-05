@@ -25,3 +25,20 @@ class Visualizer:
         plt.show()
 
     
+    def histogram(self, students: list):
+        all_scores = []
+        for s in students:
+            for key in ["q1", "q2", "q3", "q4", "q5"]:
+                all_scores.append(s[key])
+
+        scores_array = np.array(all_scores)
+
+        fig, ax = plt.subplots()
+        ax.hist(scores_array, bins=10, color="steelblue", edgecolor="black")
+
+        ax.set_title("Score Distribution")
+        ax.set_xlabel("Score")
+        ax.set_ylabel("Frequency")
+
+        plt.tight_layout()
+        plt.show()
