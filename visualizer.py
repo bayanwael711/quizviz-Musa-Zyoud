@@ -42,3 +42,21 @@ class Visualizer:
 
         plt.tight_layout()
         plt.show()
+    
+    def pie_chart(self, stats: dict):
+        pass_count = stats["pass_count"]
+        fail_count = stats["fail_count"]
+
+        fig, ax = plt.subplots()
+        ax.pie(
+            [pass_count, fail_count],
+            labels=["Pass", "Fail"],
+            colors=["green", "red"],
+            autopct="%1.1f%%",
+            startangle=90
+        )
+
+        ax.set_title("Pass / Fail Ratio")
+
+        plt.tight_layout()
+        plt.show()
