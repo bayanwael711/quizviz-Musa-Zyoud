@@ -14,11 +14,10 @@ class ScoreManager:
             reader = csv.DictReader(file)
 
             for row in reader:
-                # convert to integers
+                
                 for key in keys:
                     row[key] = int(row[key])
 
-                # compute total + average
                 total = sum(row[k] for k in keys)
                 avg = round(total / 5, 2)
 
@@ -29,3 +28,19 @@ class ScoreManager:
                 students.append(row)
 
         return students
+    
+    def calculate_stats(self, students: list):
+        averages = np.array([s["average"] for s in students])
+
+        stats = {
+        "total_students": len(students),
+        "class_average": round(float(np.mean(averages)), 2),
+        "highest_average": round(float(np.max(averages)), 2),
+        "lowest_average": round(float(np.min(averages)), 2),
+        "std_deviation": round(float(np.std(averages)), 2),
+        "pass_count": int(np.sum(averages >= 5)),
+        "fail_count": int(np.sum(averages < 5))
+    }
+
+        return stats
+
