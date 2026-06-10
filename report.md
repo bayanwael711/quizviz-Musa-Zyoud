@@ -113,8 +113,8 @@ Actual Output: Program runs successfully and visualizations appear ✅
 
 | Student |  ID |  Files |  Commit Count  |   GitHub Username | 
 |---|---|---|---|---|
-| Bayan Musa | 202311701 | score_manager.py, create_sample_data.py | 6 |   bayanwael711  |
-| Ayah Zyoud | 202211628 | visualizer.py, main.py, requirements.txt | 9 | ayahzyoud |
+| Bayan Musa | 202311701 | score_manager.py, create_sample_data.py | 20 |   bayanwael711  |
+| Ayah Zyoud | 202211628 | visualizer.py, main.py, requirements.txt | 14 | ayahzyoud |
 
 ---
 ## 8. Challenges & What We Learned
