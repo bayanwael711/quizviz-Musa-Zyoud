@@ -1,0 +1,62 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+class Visualizer:
+
+    def bar_chart(self, students: list):
+        names = [s["name"] for s in students]
+        averages = [s["average"] for s in students]
+
+        colors = ["green" if avg >= 5 else "red" for avg in averages]
+
+        fig, ax = plt.subplots()
+        ax.bar(names, averages, color=colors)
+
+        ax.axhline(y=5, color="red", linestyle="--", label="Pass threshold (5.0)")
+
+        ax.set_title("Student Average Scores")
+        ax.set_xlabel("Student")
+        ax.set_ylabel("Average (out of 10)")
+        ax.set_ylim(0, 10)
+        ax.legend()
+
+        plt.tight_layout()
+        plt.show()
+
+    
+    def histogram(self, students: list):
+        all_scores = []
+        for s in students:
+            for key in ["q1", "q2", "q3", "q4", "q5"]:
+                all_scores.append(s[key])
+
+        scores_array = np.array(all_scores)
+
+        fig, ax = plt.subplots()
+        ax.hist(scores_array, bins=10, color="steelblue", edgecolor="black")
+
+        ax.set_title("Score Distribution")
+        ax.set_xlabel("Score")
+        ax.set_ylabel("Frequency")
+
+        plt.tight_layout()
+        plt.show()
+    
+    def pie_chart(self, stats: dict):
+        pass_count = stats["pass_count"]
+        fail_count = stats["fail_count"]
+
+        fig, ax = plt.subplots()
+        ax.pie(
+            [pass_count, fail_count],
+            labels=["Pass", "Fail"],
+            colors=["green", "red"],
+            autopct="%1.1f%%",
+            startangle=90
+        )
+
+        ax.set_title("Pass / Fail Ratio")
+
+        plt.tight_layout()
+        plt.show()
