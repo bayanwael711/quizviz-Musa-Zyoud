@@ -55,10 +55,3 @@ class ScoreManager:
 
         print(f"Report saved: {filepath}")
 
-
-if __name__ == "__main__":
-     sm = ScoreManager()
-     students = sm.load_scores("scores.csv")
-     stats = sm.calculate_stats(students)
-
-     sm.save_report(students, stats, "report.json")    
