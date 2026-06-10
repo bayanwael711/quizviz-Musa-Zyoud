@@ -44,3 +44,21 @@ class ScoreManager:
 
         return stats
 
+    def save_report(self, students: list, stats: dict, filepath: str):
+        report = {
+        "summary": stats,
+        "students": students
+    }
+
+        with open(filepath, "w") as f:
+            json.dump(report, f, indent=2)
+
+        print(f"Report saved: {filepath}")
+
+
+if __name__ == "__main__":
+     sm = ScoreManager()
+     students = sm.load_scores("scores.csv")
+     stats = sm.calculate_stats(students)
+
+     sm.save_report(students, stats, "report.json")    
